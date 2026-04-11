@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>贾伯超 | 商业分析/数据科学求职</title>
+    <title>Bochao Jia | Data Analytics & ML for Business</title>
     <style>
         * {
             margin: 0;
@@ -12,13 +12,13 @@
         }
 
         body {
-            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
             line-height: 1.6;
             color: #333;
             background-color: #f8f9fa;
         }
 
-        /* 导航栏 */
+        /* Navigation Bar */
         .navbar {
             position: fixed;
             top: 0;
@@ -50,14 +50,14 @@
             color: #4facfe;
         }
 
-        /* 主容器 */
+        /* Main Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 80px 20px 40px;
         }
 
-        /* 通用 section 样式 */
+        /* Section Styles */
         .section {
             background: white;
             border-radius: 16px;
@@ -82,21 +82,21 @@
             margin-bottom: 15px;
         }
 
-        /* Home 区域 */
+        /* Home Section */
         .home-content {
             text-align: center;
             padding: 20px 0;
         }
 
         .headline {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: #1a1a2e;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .subheadline {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: #555;
             margin-bottom: 25px;
         }
@@ -118,7 +118,7 @@
             box-shadow: 0 2px 8px rgba(79,172,254,0.3);
         }
 
-        /* 关于我 */
+        /* About Me */
         .about-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -150,7 +150,7 @@
             border-left: 4px solid #4facfe;
         }
 
-        /* 技能表格 */
+        /* Skills Grid */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -184,7 +184,7 @@
             border: 1px solid #e0e0e0;
         }
 
-        /* 项目卡片 */
+        /* Project Cards */
         .project-card {
             background: #fafbfc;
             border-radius: 16px;
@@ -229,7 +229,7 @@
             font-weight: 700;
             color: #4facfe;
             display: inline-block;
-            min-width: 90px;
+            min-width: 105px;
         }
 
         .project-link {
@@ -246,7 +246,7 @@
             text-decoration: underline;
         }
 
-        /* 简历下载区域 */
+        /* Resume Download */
         .resume-download {
             display: flex;
             align-items: center;
@@ -292,11 +292,11 @@
 
         .resume-label {
             font-weight: 700;
-            min-width: 100px;
+            min-width: 110px;
             color: #555;
         }
 
-        /* 联系方式 */
+        /* Contact */
         .contact-info {
             display: flex;
             flex-direction: column;
@@ -335,7 +335,15 @@
             color: #4facfe;
         }
 
-        /* 响应式 */
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .nav-container {
                 gap: 1rem;
@@ -350,7 +358,7 @@
                 grid-template-columns: 1fr;
             }
             .headline {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
             .section {
                 padding: 25px;
@@ -360,15 +368,7 @@
             }
         }
 
-        /* 页脚 */
-        .footer {
-            text-align: center;
-            padding: 20px;
-            color: #888;
-            font-size: 0.9rem;
-        }
-
-        /* 平滑滚动 */
+        /* Smooth Scroll */
         html {
             scroll-behavior: smooth;
         }
@@ -376,15 +376,15 @@
 </head>
 <body>
 
-    <!-- 导航栏 -->
+    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#home">🏠 首页</a>
-            <a href="#about">👤 关于我</a>
-            <a href="#skills">💻 技能</a>
-            <a href="#projects">📁 项目</a>
-            <a href="#resume">📄 简历</a>
-            <a href="#contact">📧 联系</a>
+            <a href="#home">🏠 Home</a>
+            <a href="#about">👤 About</a>
+            <a href="#skills">💻 Skills</a>
+            <a href="#projects">📁 Projects</a>
+            <a href="#resume">📄 Resume</a>
+            <a href="#contact">📧 Contact</a>
         </div>
     </nav>
 
@@ -393,194 +393,200 @@
         <!-- ===== 1) HOME / HEADLINE ===== -->
         <section id="home" class="section">
             <div class="home-content">
-                <h1 class="headline">贾伯超</h1>
+                <h1 class="headline">Bochao Jia</h1>
                 <div class="subheadline">
-                    寻求数据分析/商业智能实习生岗位，善于用数据驱动业务决策与流程优化
+                    Seeking Data Analytics / Business Intelligence Internship | Leveraging ML to Drive Business Decisions
                 </div>
                 <div class="tags">
                     <span class="tag">Data Analytics</span>
+                    <span class="tag">Machine Learning</span>
                     <span class="tag">Python</span>
                     <span class="tag">SQL</span>
+                    <span class="tag">XGBoost</span>
+                    <span class="tag">Recommendation Systems</span>
                     <span class="tag">A/B Testing</span>
                     <span class="tag">Business Intelligence</span>
-                    <span class="tag">Process Automation</span>
                 </div>
             </div>
         </section>
 
         <!-- ===== 2) ABOUT ME ===== -->
         <section id="about" class="section">
-            <h2>关于我</h2>
+            <h2>About Me</h2>
             <div class="about-grid">
                 <div>
                     <p style="margin-bottom: 20px; font-size: 1.05rem;">
-                        我是北京联合大学软件工程专业学生（预计2025年毕业），具备扎实的编程基础与逻辑分析能力。
-                        我热衷于从数据中提取业务洞察，通过量化分析帮助团队优化决策效率。
-                        在课程与项目中，我积累了数据处理、自动化脚本开发以及技术文档撰写经验。
+                        I am a senior Software Engineering student at Beijing Union University (expected graduation: June 2025). 
+                        I am passionate about extracting business insights from data and translating complex analyses into actionable recommendations. 
+                        My coursework and projects have equipped me with a strong foundation in Python, SQL, and machine learning pipelines.
                     </p>
-                    <h3 style="margin-bottom: 15px;">核心优势</h3>
+                    <h3 style="margin-bottom: 15px;">Core Strengths</h3>
                     <ul class="strengths">
-                        <li><strong>数据驱动思维：</strong>能够将模糊的业务问题转化为可量化的数据分析任务</li>
-                        <li><strong>技术实现能力：</strong>熟练使用 Python 进行数据处理，SQL 进行数据查询</li>
-                        <li><strong>沟通与呈现：</strong>具备文档撰写与可视化汇报能力，能将技术结论转化为业务语言</li>
-                        <li><strong>快速学习：</strong>雅思6.5分，可流畅阅读英文技术文档与行业报告</li>
+                        <li><strong>Data-Driven Problem Solving:</strong> Skilled at framing ambiguous business questions into quantifiable analytical tasks.</li>
+                        <li><strong>Machine Learning Implementation:</strong> Hands-on experience building end-to-end ML systems, including tree-based models and recommender systems.</li>
+                        <li><strong>Technical Communication:</strong> Able to present complex findings to both technical and non-technical stakeholders.</li>
+                        <li><strong>Rapid Learner:</strong> IELTS 6.5, comfortable working with English technical documentation and collaborating globally.</li>
                     </ul>
                 </div>
                 <div class="edu-box">
-                    <h3 style="color: #1a1a2e; margin-bottom: 15px;">🎓 教育背景</h3>
-                    <p style="font-size: 1.1rem; font-weight: 600;">北京联合大学</p>
-                    <p>软件工程 | 本科</p>
-                    <p>2021.09 - 至今 (预计2025.06毕业)</p>
-                    <p style="margin-top: 15px; color: #666;">主修课程：Python程序设计、数据结构与算法、数据库系统、软件项目管理、软件测试技术</p>
+                    <h3 style="color: #1a1a2e; margin-bottom: 15px;">🎓 Education</h3>
+                    <p style="font-size: 1.1rem; font-weight: 600;">Beijing Union University</p>
+                    <p>B.E. in Software Engineering</p>
+                    <p>Sep 2021 – Jun 2025 (Expected)</p>
+                    <p style="margin-top: 15px; color: #666;"><strong>Relevant Coursework:</strong> Python Programming, Data Structures & Algorithms, Database Systems, Software Testing, Machine Learning for Business</p>
                 </div>
             </div>
         </section>
 
         <!-- ===== 3) SKILLS ===== -->
         <section id="skills" class="section">
-            <h2>技能</h2>
+            <h2>Skills</h2>
             <div class="skills-grid">
-                <!-- 技术技能 -->
+                <!-- Technical Skills -->
                 <div class="skill-category">
-                    <h3>🔧 技术技能</h3>
+                    <h3>🔧 Technical Skills</h3>
                     <div class="skill-items">
                         <span class="skill-item">Python</span>
                         <span class="skill-item">Pandas</span>
                         <span class="skill-item">NumPy</span>
+                        <span class="skill-item">Scikit-learn</span>
+                        <span class="skill-item">XGBoost</span>
+                        <span class="skill-item">SciPy</span>
                         <span class="skill-item">SQL (MySQL)</span>
-                        <span class="skill-item">基础统计学</span>
                         <span class="skill-item">Jupyter Notebook</span>
+                        <span class="skill-item">Statistics</span>
                     </div>
                 </div>
-                <!-- 商业分析技能 -->
+                <!-- Business Skills -->
                 <div class="skill-category">
-                    <h3>📊 商业分析技能</h3>
+                    <h3>📊 Business Analytics</h3>
                     <div class="skill-items">
-                        <span class="skill-item">问题定义与拆解</span>
-                        <span class="skill-item">A/B测试基础</span>
-                        <span class="skill-item">指标体系搭建</span>
-                        <span class="skill-item">数据报告撰写</span>
-                        <span class="skill-item">流程优化分析</span>
-                        <span class="skill-item">Storytelling</span>
+                        <span class="skill-item">Problem Framing</span>
+                        <span class="skill-item">A/B Testing</span>
+                        <span class="skill-item">Metrics Definition</span>
+                        <span class="skill-item">Data Storytelling</span>
+                        <span class="skill-item">Process Optimization</span>
+                        <span class="skill-item">Experimental Design</span>
                     </div>
                 </div>
-                <!-- 工具 -->
+                <!-- Tools -->
                 <div class="skill-category">
-                    <h3>🛠️ 工具</h3>
+                    <h3>🛠️ Tools</h3>
                     <div class="skill-items">
-                        <span class="skill-item">Excel (数据透视表)</span>
+                        <span class="skill-item">Matplotlib</span>
+                        <span class="skill-item">Seaborn</span>
+                        <span class="skill-item">Excel (Pivot Tables)</span>
                         <span class="skill-item">MySQL Workbench</span>
-                        <span class="skill-item">Tableau (学习中)</span>
                         <span class="skill-item">Git / GitHub</span>
                         <span class="skill-item">VS Code</span>
-                        <span class="skill-item">PowerPoint</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== 4) PROJECTS (核心) ===== -->
+        <!-- ===== 4) PROJECTS (Core) ===== -->
         <section id="projects" class="section">
-            <h2>项目经历</h2>
+            <h2>Projects</h2>
             
-            <!-- 项目一 -->
+            <!-- Project 1: Movie Recommendation System -->
             <div class="project-card">
                 <div class="project-header">
-                    <span class="project-title">自动驾驶仿真测试流程效率分析与自动化优化</span>
-                    <span class="project-time">2024.02 - 2024.05</span>
+                    <span class="project-title">Hybrid Movie Recommendation System Optimization</span>
+                    <span class="project-time">March 2026</span>
                 </div>
                 <div class="project-field">
                     <span class="field-label">Problem</span>
-                    <span>在自动驾驶仿真测试中，手动收集和整理测试数据耗时较长，影响算法迭代效率。<strong>业务问题：如何量化测试流程中的时间损耗，并设计自动化方案缩短迭代周期？</strong></span>
+                    <span>Pure collaborative filtering (ItemCF) suffers from cold-start issues for new movies, while pure content-based recommendations lack diversity. <strong>Business problem: How to optimally blend both approaches to maximize recommendation precision and recall?</strong></span>
                 </div>
                 <div class="project-field">
                     <span class="field-label">Data</span>
-                    <span>收集了 50+ 次仿真测试的日志数据，包含测试任务类型、手动操作步骤数、数据收集耗时、出错率等字段。</span>
+                    <span>MovieLens 100K public dataset: 100,000 ratings (1-5 scale) from 943 users on 1,682 movies, plus movie metadata (release year, 19 genre categories).</span>
                 </div>
                 <div class="project-field">
                     <span class="field-label">Approach</span>
-                    <span>1) 使用 Python 解析仿真日志，统计各环节耗时分布；2) 识别"手动数据收集"为核心瓶颈（占总耗时约60%）；3) 编写自动化脚本替代手动操作，并对比优化前后的耗时数据。</span>
+                    <span>1) Built user-item rating matrix and item-based collaborative filtering (ItemCF) similarity; 2) Constructed content feature vectors based on genres and release year; 3) Designed a linear weighted hybrid model: Hybrid Score = α × ItemCF + (1-α) × Content; 4) Used grid search to tune α with F1-Score as the optimization target.</span>
                 </div>
                 <div class="project-field">
                     <span class="field-label">Outcome</span>
-                    <span>测试数据收集效率提升 <strong>50%</strong>，单次测试迭代时间从平均12分钟缩短至6分钟。<strong>业务价值：</strong>同等时间内的测试轮次翻倍，加速算法验证进度。</span>
+                    <span>Grid search identified optimal α = 0.95, achieving the highest F1-Score. Generated 5 types of high-resolution visualizations (rating distributions, model comparison, α-tuning curves). <strong>Business value:</strong> Delivered a balanced recommendation strategy that can be deployed as a "You May Also Like" module to improve user engagement.</span>
                 </div>
                 <div class="project-field">
-                    <span class="field-label">Your Contribution</span>
-                    <span>独立完成全流程分析：问题识别 → 数据收集 → 耗时量化 → 脚本开发 → 效果验证。</span>
+                    <span class="field-label">Contribution</span>
+                    <span>Individual project: Independently completed data preprocessing, feature engineering, hybrid algorithm implementation, grid search tuning, and all visualization outputs.</span>
                 </div>
                 <div class="project-link">
                     <span class="field-label">Link</span>
-                    <span>🔗 <a href="#">GitHub 代码仓库 (如有可替换链接)</a></span>
+                    <span>🔗 <a href="https://github.com/jbc20151102/movie-recommend" target="_blank">GitHub Repository: jbc20151102/movie-recommend</a></span>
                 </div>
             </div>
 
-            <!-- 项目二 -->
+            <!-- Project 2: Weather Prediction with XGBoost (Group Project) -->
             <div class="project-card">
                 <div class="project-header">
-                    <span class="project-title">时钟应用界面交互偏好 A/B 测试分析</span>
-                    <span class="project-time">2023.10 - 2023.12</span>
+                    <span class="project-title">Weather Prediction using XGBoost (Group Project)</span>
+                    <span class="project-time">March 2026 – April 2026</span>
                 </div>
                 <div class="project-field">
                     <span class="field-label">Problem</span>
-                    <span>开发的模拟时钟应用面临设计选择：表盘使用<strong>数字刻度</strong>还是<strong>罗马数字</strong>？哪种设计能帮助用户更快读取时间？<strong>业务问题：通过量化实验确定更优的界面设计方案。</strong></span>
+                    <span>Accurate weather prediction is critical for industries like agriculture, retail, and supply chain management. <strong>Business problem: Can we build a high-performance predictive model that outperforms traditional forecasting methods?</strong></span>
                 </div>
                 <div class="project-field">
                     <span class="field-label">Data</span>
-                    <span>邀请12名用户参与测试，每人使用两个版本各完成5次"读出当前时间"任务。数据字段：用户ID、版本类型（A:数字/B:罗马）、任务完成耗时（秒）、错误次数。</span>
+                    <span>Historical meteorological data including temperature, humidity, wind speed, atmospheric pressure, and precipitation records across multiple timeframes.</span>
                 </div>
                 <div class="project-field">
                     <span class="field-label">Approach</span>
-                    <span>1) 设计组内对照实验，每个用户测试两个版本；2) 使用 Python (Pandas) 清洗数据并计算两版本的平均耗时与错误率；3) 使用描述性统计比较版本表现。</span>
+                    <span>1) Collaborated on data cleaning and feature engineering (handling missing values, creating lag features); 2) <strong>My primary contribution: Built and optimized the XGBoost regression model</strong>; 3) Performed hyperparameter tuning via GridSearchCV (optimizing n_estimators, max_depth, learning_rate); 4) Conducted feature importance analysis to identify key meteorological drivers; 5) Integrated XGBoost predictions with other team members' models (Random Forest, LSTM) for ensemble comparison.</span>
                 </div>
                 <div class="project-field">
                     <span class="field-label">Outcome</span>
-                    <span><strong>结论：</strong>数字刻度版本平均耗时2.3秒，罗马数字版本平均耗时3.8秒。<strong>业务建议：</strong>采用数字刻度版本作为默认界面，预计可将用户读时效率提升约 <strong>40%</strong>。</span>
+                    <span>The XGBoost model I developed achieved the <strong>lowest RMSE among all individual models</strong> tested by the team. Feature importance analysis revealed that humidity and historical pressure trends were the strongest predictors. <strong>Business value:</strong> Demonstrated that gradient boosting provides a highly accurate, interpretable baseline for operational weather-sensitive business planning.</span>
                 </div>
                 <div class="project-field">
-                    <span class="field-label">Your Contribution</span>
-                    <span>独立完成实验设计、用户测试执行、数据收集与分析、最终报告撰写。</span>
+                    <span class="field-label">Contribution</span>
+                    <span>Core team member. Independently responsible for the XGBoost pipeline: model selection, hyperparameter tuning, feature importance analysis, and performance evaluation. Coordinated with team members to compare results and discuss ensemble strategies.</span>
                 </div>
                 <div class="project-link">
                     <span class="field-label">Link</span>
-                    <span>🔗 <a href="#">分析报告 PDF (如有可替换链接)</a></span>
+                    <span>🔗 <a href="https://github.com/zhang-dot-dev/weather-forecast" target="_blank">GitHub Repository: zhang-dot-dev/weather-forecast</a></span>
                 </div>
             </div>
+            
         </section>
 
         <!-- ===== 5) RESUME / CV ===== -->
         <section id="resume" class="section">
-            <h2>简历</h2>
+            <h2>Resume</h2>
             <div class="resume-download">
-                <a href="#" class="btn">📥 下载 PDF 简历</a>
-                <span style="color: #666;">(Google Drive 链接)</span>
+                <a href="#" class="btn">📥 Download Full Resume (PDF)</a>
+                <span style="color: #666;">(Google Drive Link)</span>
             </div>
             <div class="resume-mini">
-                <h3 style="margin-bottom: 20px; text-align: center;">📋 简历摘要</h3>
+                <h3 style="margin-bottom: 20px; text-align: center;">📋 Resume Summary</h3>
                 <div class="resume-mini-grid">
                     <div class="resume-item">
-                        <span class="resume-label">姓名</span>
-                        <span>贾伯超</span>
+                        <span class="resume-label">Name</span>
+                        <span>Bochao Jia</span>
                     </div>
                     <div class="resume-item">
-                        <span class="resume-label">年龄</span>
-                        <span>21岁</span>
+                        <span class="resume-label">Age</span>
+                        <span>21</span>
                     </div>
                     <div class="resume-item">
-                        <span class="resume-label">教育</span>
-                        <span>北京联合大学 · 软件工程 · 本科 (2021-2025)</span>
+                        <span class="resume-label">Education</span>
+                        <span>B.E. Software Engineering, Beijing Union University (2021–2025)</span>
                     </div>
                     <div class="resume-item">
-                        <span class="resume-label">核心技能</span>
-                        <span>Python (Pandas) · SQL · A/B测试 · 数据分析</span>
+                        <span class="resume-label">Core Skills</span>
+                        <span>Python (Pandas, Scikit-learn, XGBoost), SQL, Machine Learning, A/B Testing</span>
                     </div>
                     <div class="resume-item">
-                        <span class="resume-label">语言</span>
-                        <span>英语 (雅思6.5) · 中文 (母语)</span>
+                        <span class="resume-label">Languages</span>
+                        <span>English (IELTS 6.5), Chinese (Native)</span>
                     </div>
                     <div class="resume-item">
-                        <span class="resume-label">项目经验</span>
-                        <span>仿真效率分析 · A/B测试实验设计</span>
+                        <span class="resume-label">Key Projects</span>
+                        <span>Hybrid Recommendation System, XGBoost Weather Prediction, Simulation Efficiency Analysis</span>
                     </div>
                 </div>
             </div>
@@ -588,25 +594,25 @@
 
         <!-- ===== 6) CONTACT ===== -->
         <section id="contact" class="section">
-            <h2>联系方式</h2>
+            <h2>Contact</h2>
             <div class="contact-info">
                 <div class="contact-email">
                     📧 <a href="mailto:jbc20151102@outlook.com">jbc20151102@outlook.com</a>
                 </div>
                 <div class="social-links">
+                    <a href="https://github.com/jbc20151102" target="_blank">🐙 GitHub</a>
+                    <span>|</span>
                     <a href="#">💼 LinkedIn</a>
                     <span>|</span>
-                    <a href="#">🐙 GitHub</a>
-                    <span>|</span>
-                    <span>📱 136-6129-8251</span>
+                    <span>📱 +86 136-6129-8251</span>
                 </div>
-                <p style="margin-top: 20px; color: #888;">📍 中国 · 北京</p>
+                <p style="margin-top: 20px; color: #888;">📍 Beijing, China</p>
             </div>
         </section>
 
-        <!-- 页脚 -->
+        <!-- Footer -->
         <div class="footer">
-            <p>© 2024 贾伯超 | 持续更新中</p>
+            <p>© 2026 Bochao Jia | Last Updated: April 2026</p>
         </div>
 
     </div>
