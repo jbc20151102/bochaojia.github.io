@@ -1,93 +1,614 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Job-Seeking Website</title>
+    <title>贾伯超 | 商业分析/数据科学求职</title>
     <style>
-        body { font-family: Arial; margin: 40px; line-height: 1.6; }
-        .section { margin: 40px 0; }
-        h1 { color: #222; }
-        h2 { color: #444; border-bottom: 1px solid #ddd; padding-bottom: 8px; }
-        .tags span { background: #eee; padding: 4px 10px; margin: 0 4px; border-radius: 12px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .navbar a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+
+        .navbar a:hover {
+            color: #4facfe;
+        }
+
+        /* 主容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px 40px;
+        }
+
+        /* 通用 section 样式 */
+        .section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            scroll-margin-top: 80px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #1a1a2e;
+            border-bottom: 3px solid #4facfe;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: #16213e;
+            margin-bottom: 15px;
+        }
+
+        /* Home 区域 */
+        .home-content {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .headline {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 20px;
+        }
+
+        .subheadline {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .tag {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 2px 8px rgba(79,172,254,0.3);
+        }
+
+        /* 关于我 */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .strengths {
+            list-style: none;
+        }
+
+        .strengths li {
+            padding: 10px 0 10px 28px;
+            position: relative;
+            border-bottom: 1px solid #eee;
+        }
+
+        .strengths li::before {
+            content: "▹";
+            color: #4facfe;
+            font-weight: bold;
+            position: absolute;
+            left: 5px;
+        }
+
+        .edu-box {
+            background: #f0f7ff;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #4facfe;
+        }
+
+        /* 技能表格 */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .skill-category h3 {
+            color: #4facfe;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-item {
+            background: white;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+
+        /* 项目卡片 */
+        .project-card {
+            background: #fafbfc;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid #e8e8e8;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .project-time {
+            color: #666;
+            font-size: 0.95rem;
+            background: #e9ecef;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        .project-field {
+            margin-bottom: 12px;
+        }
+
+        .field-label {
+            font-weight: 700;
+            color: #4facfe;
+            display: inline-block;
+            min-width: 90px;
+        }
+
+        .project-link {
+            margin-top: 15px;
+        }
+
+        .project-link a {
+            color: #4facfe;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .project-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* 简历下载区域 */
+        .resume-download {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 14px 35px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(79,172,254,0.4);
+        }
+
+        .resume-mini {
+            background: #f0f7ff;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .resume-mini-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .resume-item {
+            display: flex;
+        }
+
+        .resume-label {
+            font-weight: 700;
+            min-width: 100px;
+            color: #555;
+        }
+
+        /* 联系方式 */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-email {
+            font-size: 1.3rem;
+            color: #1a1a2e;
+            background: #f0f7ff;
+            padding: 15px 35px;
+            border-radius: 50px;
+            border: 2px dashed #4facfe;
+        }
+
+        .contact-email a {
+            color: #4facfe;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 25px;
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #4facfe;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .nav-container {
+                gap: 1rem;
+            }
+            .navbar a {
+                font-size: 0.85rem;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .headline {
+                font-size: 1.6rem;
+            }
+            .section {
+                padding: 25px;
+            }
+            .resume-mini-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* 平滑滚动 */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body>
 
-<!-- 1. Home / Headline -->
-<div class="section">
-    <h1>Home</h1>
-    <h3>Headline</h3>
-    <p>Seeking a Data Analyst / Business Analyst internship to apply data skills for business decisions.</p>
-    <div class="tags">
-        <span>Data Analytics</span>
-        <span>Python</span>
-        <span>SQL</span>
-        <span>Visualization</span>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home">🏠 首页</a>
+            <a href="#about">👤 关于我</a>
+            <a href="#skills">💻 技能</a>
+            <a href="#projects">📁 项目</a>
+            <a href="#resume">📄 简历</a>
+            <a href="#contact">📧 联系</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <!-- ===== 1) HOME / HEADLINE ===== -->
+        <section id="home" class="section">
+            <div class="home-content">
+                <h1 class="headline">贾伯超</h1>
+                <div class="subheadline">
+                    寻求数据分析/商业智能实习生岗位，善于用数据驱动业务决策与流程优化
+                </div>
+                <div class="tags">
+                    <span class="tag">Data Analytics</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">A/B Testing</span>
+                    <span class="tag">Business Intelligence</span>
+                    <span class="tag">Process Automation</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 2) ABOUT ME ===== -->
+        <section id="about" class="section">
+            <h2>关于我</h2>
+            <div class="about-grid">
+                <div>
+                    <p style="margin-bottom: 20px; font-size: 1.05rem;">
+                        我是北京联合大学软件工程专业学生（预计2025年毕业），具备扎实的编程基础与逻辑分析能力。
+                        我热衷于从数据中提取业务洞察，通过量化分析帮助团队优化决策效率。
+                        在课程与项目中，我积累了数据处理、自动化脚本开发以及技术文档撰写经验。
+                    </p>
+                    <h3 style="margin-bottom: 15px;">核心优势</h3>
+                    <ul class="strengths">
+                        <li><strong>数据驱动思维：</strong>能够将模糊的业务问题转化为可量化的数据分析任务</li>
+                        <li><strong>技术实现能力：</strong>熟练使用 Python 进行数据处理，SQL 进行数据查询</li>
+                        <li><strong>沟通与呈现：</strong>具备文档撰写与可视化汇报能力，能将技术结论转化为业务语言</li>
+                        <li><strong>快速学习：</strong>雅思6.5分，可流畅阅读英文技术文档与行业报告</li>
+                    </ul>
+                </div>
+                <div class="edu-box">
+                    <h3 style="color: #1a1a2e; margin-bottom: 15px;">🎓 教育背景</h3>
+                    <p style="font-size: 1.1rem; font-weight: 600;">北京联合大学</p>
+                    <p>软件工程 | 本科</p>
+                    <p>2021.09 - 至今 (预计2025.06毕业)</p>
+                    <p style="margin-top: 15px; color: #666;">主修课程：Python程序设计、数据结构与算法、数据库系统、软件项目管理、软件测试技术</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 3) SKILLS ===== -->
+        <section id="skills" class="section">
+            <h2>技能</h2>
+            <div class="skills-grid">
+                <!-- 技术技能 -->
+                <div class="skill-category">
+                    <h3>🔧 技术技能</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">Pandas</span>
+                        <span class="skill-item">NumPy</span>
+                        <span class="skill-item">SQL (MySQL)</span>
+                        <span class="skill-item">基础统计学</span>
+                        <span class="skill-item">Jupyter Notebook</span>
+                    </div>
+                </div>
+                <!-- 商业分析技能 -->
+                <div class="skill-category">
+                    <h3>📊 商业分析技能</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">问题定义与拆解</span>
+                        <span class="skill-item">A/B测试基础</span>
+                        <span class="skill-item">指标体系搭建</span>
+                        <span class="skill-item">数据报告撰写</span>
+                        <span class="skill-item">流程优化分析</span>
+                        <span class="skill-item">Storytelling</span>
+                    </div>
+                </div>
+                <!-- 工具 -->
+                <div class="skill-category">
+                    <h3>🛠️ 工具</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Excel (数据透视表)</span>
+                        <span class="skill-item">MySQL Workbench</span>
+                        <span class="skill-item">Tableau (学习中)</span>
+                        <span class="skill-item">Git / GitHub</span>
+                        <span class="skill-item">VS Code</span>
+                        <span class="skill-item">PowerPoint</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 4) PROJECTS (核心) ===== -->
+        <section id="projects" class="section">
+            <h2>项目经历</h2>
+            
+            <!-- 项目一 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-title">自动驾驶仿真测试流程效率分析与自动化优化</span>
+                    <span class="project-time">2024.02 - 2024.05</span>
+                </div>
+                <div class="project-field">
+                    <span class="field-label">Problem</span>
+                    <span>在自动驾驶仿真测试中，手动收集和整理测试数据耗时较长，影响算法迭代效率。<strong>业务问题：如何量化测试流程中的时间损耗，并设计自动化方案缩短迭代周期？</strong></span>
+                </div>
+                <div class="project-field">
+                    <span class="field-label">Data</span>
+                    <span>收集了 50+ 次仿真测试的日志数据，包含测试任务类型、手动操作步骤数、数据收集耗时、出错率等字段。</span>
+                </div>
+                <div class="project-field">
+                    <span class="field-label">Approach</span>
+                    <span>1) 使用 Python 解析仿真日志，统计各环节耗时分布；2) 识别"手动数据收集"为核心瓶颈（占总耗时约60%）；3) 编写自动化脚本替代手动操作，并对比优化前后的耗时数据。</span>
+                </div>
+                <div class="project-field">
+                    <span class="field-label">Outcome</span>
+                    <span>测试数据收集效率提升 <strong>50%</strong>，单次测试迭代时间从平均12分钟缩短至6分钟。<strong>业务价值：</strong>同等时间内的测试轮次翻倍，加速算法验证进度。</span>
+                </div>
+                <div class="project-field">
+                    <span class="field-label">Your Contribution</span>
+                    <span>独立完成全流程分析：问题识别 → 数据收集 → 耗时量化 → 脚本开发 → 效果验证。</span>
+                </div>
+                <div class="project-link">
+                    <span class="field-label">Link</span>
+                    <span>🔗 <a href="#">GitHub 代码仓库 (如有可替换链接)</a></span>
+                </div>
+            </div>
+
+            <!-- 项目二 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-title">时钟应用界面交互偏好 A/B 测试分析</span>
+                    <span class="project-time">2023.10 - 2023.12</span>
+                </div>
+                <div class="project-field">
+                    <span class="field-label">Problem</span>
+                    <span>开发的模拟时钟应用面临设计选择：表盘使用<strong>数字刻度</strong>还是<strong>罗马数字</strong>？哪种设计能帮助用户更快读取时间？<strong>业务问题：通过量化实验确定更优的界面设计方案。</strong></span>
+                </div>
+                <div class="project-field">
+                    <span class="field-label">Data</span>
+                    <span>邀请12名用户参与测试，每人使用两个版本各完成5次"读出当前时间"任务。数据字段：用户ID、版本类型（A:数字/B:罗马）、任务完成耗时（秒）、错误次数。</span>
+                </div>
+                <div class="project-field">
+                    <span class="field-label">Approach</span>
+                    <span>1) 设计组内对照实验，每个用户测试两个版本；2) 使用 Python (Pandas) 清洗数据并计算两版本的平均耗时与错误率；3) 使用描述性统计比较版本表现。</span>
+                </div>
+                <div class="project-field">
+                    <span class="field-label">Outcome</span>
+                    <span><strong>结论：</strong>数字刻度版本平均耗时2.3秒，罗马数字版本平均耗时3.8秒。<strong>业务建议：</strong>采用数字刻度版本作为默认界面，预计可将用户读时效率提升约 <strong>40%</strong>。</span>
+                </div>
+                <div class="project-field">
+                    <span class="field-label">Your Contribution</span>
+                    <span>独立完成实验设计、用户测试执行、数据收集与分析、最终报告撰写。</span>
+                </div>
+                <div class="project-link">
+                    <span class="field-label">Link</span>
+                    <span>🔗 <a href="#">分析报告 PDF (如有可替换链接)</a></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 5) RESUME / CV ===== -->
+        <section id="resume" class="section">
+            <h2>简历</h2>
+            <div class="resume-download">
+                <a href="#" class="btn">📥 下载 PDF 简历</a>
+                <span style="color: #666;">(Google Drive 链接)</span>
+            </div>
+            <div class="resume-mini">
+                <h3 style="margin-bottom: 20px; text-align: center;">📋 简历摘要</h3>
+                <div class="resume-mini-grid">
+                    <div class="resume-item">
+                        <span class="resume-label">姓名</span>
+                        <span>贾伯超</span>
+                    </div>
+                    <div class="resume-item">
+                        <span class="resume-label">年龄</span>
+                        <span>21岁</span>
+                    </div>
+                    <div class="resume-item">
+                        <span class="resume-label">教育</span>
+                        <span>北京联合大学 · 软件工程 · 本科 (2021-2025)</span>
+                    </div>
+                    <div class="resume-item">
+                        <span class="resume-label">核心技能</span>
+                        <span>Python (Pandas) · SQL · A/B测试 · 数据分析</span>
+                    </div>
+                    <div class="resume-item">
+                        <span class="resume-label">语言</span>
+                        <span>英语 (雅思6.5) · 中文 (母语)</span>
+                    </div>
+                    <div class="resume-item">
+                        <span class="resume-label">项目经验</span>
+                        <span>仿真效率分析 · A/B测试实验设计</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 6) CONTACT ===== -->
+        <section id="contact" class="section">
+            <h2>联系方式</h2>
+            <div class="contact-info">
+                <div class="contact-email">
+                    📧 <a href="mailto:jbc20151102@outlook.com">jbc20151102@outlook.com</a>
+                </div>
+                <div class="social-links">
+                    <a href="#">💼 LinkedIn</a>
+                    <span>|</span>
+                    <a href="#">🐙 GitHub</a>
+                    <span>|</span>
+                    <span>📱 136-6129-8251</span>
+                </div>
+                <p style="margin-top: 20px; color: #888;">📍 中国 · 北京</p>
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <div class="footer">
+            <p>© 2024 贾伯超 | 持续更新中</p>
+        </div>
+
     </div>
-</div>
-
-<!-- 2. About Me -->
-<div class="section">
-    <h2>About Me</h2>
-    <p>I am a data-focused student skilled in analysis, visualization, and problem-solving.</p>
-    <p>I enjoy turning raw data into clear insights and real business value.</p>
-    <h3>Education</h3>
-    <p>University: [Your University]</p>
-    <p>Major: [Your Major]</p>
-    <p>Graduation: [Expected Date]</p>
-    <h3>Strengths</h3>
-    <ul>
-        <li>Strong analytical thinking</li>
-        <li>Data processing & visualization</li>
-        <li>Teamwork & communication</li>
-    </ul>
-</div>
-
-<!-- 3. Skills -->
-<div class="section">
-    <h2>Skills</h2>
-    <h3>Technical Skills</h3>
-    <p>Python, SQL, Statistics, Data Cleaning, Data Analysis</p>
-    <h3>Business Skills</h3>
-    <p>Problem Framing, Data Storytelling, Reporting</p>
-    <h3>Tools</h3>
-    <p>Pandas, Matplotlib, Excel, GitHub</p>
-</div>
-
-<!-- 4. Projects (CORE) -->
-<div class="section">
-    <h2>Projects</h2>
-
-    <h3>Project 1: Sales Data Analysis (Individual)</h3>
-    <p>Time: 2025.09 – 2025.12</p>
-    <p>Problem: Analyze sales trends and improve revenue strategy.</p>
-    <p>Data: 10,000+ sales records (product, region, revenue).</p>
-    <p>Approach: Pandas cleaning, EDA, visualization.</p>
-    <p>Outcome: Identified top products & low regions; 5 improvement suggestions.</p>
-    <p>Contribution: Independent full project completion.</p>
-
-    <h3>Project 2: Customer Churn Prediction (Group)</h3>
-    <p>Time: 2026.01 – 2026.04</p>
-    <p>Problem: Predict churn to support user retention.</p>
-    <p>Data: 5,000 customer behavior records.</p>
-    <p>Approach: Preprocessing, feature engineering, logistic regression.</p>
-    <p>Outcome: 78% accuracy; provided retention strategies.</p>
-    <p>Contribution: Data preprocessing & feature selection.</p>
-</div>
-
-<!-- 5. Resume -->
-<div class="section">
-    <h2>Resume</h2>
-    <p>Download my resume: <a href="#">https://drive.google.com/your-resume.pdf</a></p>
-</div>
-
-<!-- 6. Contact -->
-<div class="section">
-    <h2>Contact</h2>
-    <p>Email: your-email@example.com</p>
-    <p>GitHub: https://github.com/your-username</p>
-</div>
-
 </body>
 </html>
